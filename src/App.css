@@ -1,0 +1,3 @@
+.App > div > div:nth-child(2) {
+    top: -300px;
+}
