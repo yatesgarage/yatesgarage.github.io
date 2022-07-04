@@ -1,47 +1,33 @@
-import { Suspense, useRef } from 'react';
-import { Canvas, useLoader, useFrame } from '@react-three/fiber';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import { Suspense } from 'react';
+import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
-import BuildCircleSharpIcon from '@mui/icons-material/BuildCircleSharp';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
 import Title from '../Title';
+import Model from '../Model';
 
-function Loader() {
-  return (
-    <BuildCircleSharpIcon sx={{ fontSize: 120 }} className="rotate" />
-  )
-}
+const primaryText = 'Yates Garage';
+const secondaryText = 'TRANSMISSIONS & PERFORMANCE';
 
 function Scene() {
-  const ref = useRef();
-  const gltf = useLoader(GLTFLoader, '/scenes/scene.gltf');
-
-  useFrame((state, delta) => (ref.current.rotation.y += 0.005));
-
   return (
     <>
-      <ambientLight />
-      <pointLight position={[0, 20, 10]} intensity={2} />
-      <pointLight position={[20, 10, 0]} intensity={2} />
-      <pointLight position={[10, 0, 20]} intensity={2} />
-      <pointLight position={[0, 20, -10]} intensity={2} />
-      <primitive
-        ref={ref}
-        position={[0, 1, 0]}
-        object={gltf.scene}
-      />
+      <pointLight position={[0, 10, 0]} intensity={1.6} />
+      <pointLight position={[10, 0, 0]} intensity={0.8} />
+      <pointLight position={[-10, 0, 0]} intensity={0.8} />
+      <pointLight position={[0, 0, 10]} intensity={0.8} />
+      <pointLight position={[0, 0, -10]} intensity={0.8} />
+      <Model />
       <OrbitControls enableZoom={false} />
     </>
-  )
+  );
 }
 
 function Home() {
   return (
     <div>
       <div className="app-header">
-        <Title title="Yates Garage" />
-        <h1 className="font--primary">Yates Garage</h1>
-        <h2>{'TRANSMISSIONS & PERFORMANCE'}</h2>
+        <Title title={primaryText} />
+        <h1 className="font--primary">{primaryText}</h1>
+        <h2>{secondaryText}</h2>
         <p>
           <a
             className="font--link"
@@ -50,16 +36,15 @@ function Home() {
             rel="nofollow noreferrer"
             target="_blank"
           >
-            <LocationOnIcon />
             <span>14833 Grant Rd, Cypress TX - 77429</span>
           </a>
         </p>
       </div>
-      <Suspense fallback={<Loader />}>
-        <Canvas> 
+      <Canvas style={{ width: '100%', minHeight: '300px' }}>
+        <Suspense fallback={null}>
           <Scene />
-        </Canvas>
-      </Suspense>
+        </Suspense>
+      </Canvas>
     </div>
   );
 }

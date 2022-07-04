@@ -6,7 +6,6 @@ module.exports = {
   extends: [
     'plugin:react/recommended',
     'airbnb',
-    'react/jsx-runtime',
   ],
   parserOptions: {
     ecmaFeatures: {
@@ -19,6 +18,7 @@ module.exports = {
     'react',
   ],
   rules: {
+    'react/react-in-jsx-scope': 'off',
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     'comma-dangle': ['error', {
       arrays: 'always-multiline',
@@ -27,5 +27,6 @@ module.exports = {
       exports: 'always-multiline',
       functions: 'never',
     }],
+    'linebreak-style': ['error', 'windows'],
   },
 };

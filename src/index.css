@@ -1,10 +1,14 @@
+html {
+  font-size: 16px;
+}
+
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #eee;
-  color: #3e3e3e;
+  background: #131313;
+  color: rgba(255, 255, 255, 0.87);
 }
 
 code {
@@ -24,41 +28,45 @@ canvas {
   position: relative;
   z-index: 1;
   text-align: center;
+  padding: 1rem;
 }
 
 .font--primary {
   font-family: 'Georgia', serif;
   font-size: 4rem;
   line-height: 0;
-  font-weight: bolder;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 .font--link {
   text-decoration: none;
-  color: #7e7e7e;
-}
-
-.font--link > span {
-  vertical-align: super;
+  color: #fff;
+  opacity: 0.54;
 }
 
 .font--link:hover {
-  color: #5e5e5e;
+  opacity: 0.87;
 }
 
-.rotate {
-  animation: rotater 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+.btn--primary {
+  display: inline-block;
+  height: auto;
+  text-transform: uppercase;
+  padding: 1rem;
+  margin: 0 1rem;
+  font-size: 1.25rem;
+  font-weight: bolder;
+  border: 2px solid #fff;
+  border-radius: 0.5rem;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
 }
 
-@keyframes rotater {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+.btn--primary:hover {
+  background: rgba(255, 255, 255, 0.54);
 }
-
 
 @media all and (max-width: 767px) {
   canvas {

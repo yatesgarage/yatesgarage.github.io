@@ -10,8 +10,9 @@ function Title({ title, route }) {
         rel="canonical"
         href={
           _isEmpty(route)
-          ? `${window.location.href}${route}`
-          : `${window.location.href}`}
+            ? `${window.location.href}${route}`
+            : `${window.location.href}`
+}
       />
     </Helmet>
   );
@@ -20,11 +21,11 @@ function Title({ title, route }) {
 Title.propTypes = {
   title: PropTypes.string,
   route: PropTypes.string,
-}
+};
 
 Title.defaultProps = {
   title: 'Yates Garage',
-  route: ''
-}
+  route: '',
+};
 
 export default Title;
