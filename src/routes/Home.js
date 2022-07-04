@@ -16,7 +16,7 @@ function Scene() {
       <pointLight position={[0, 0, 10]} intensity={0.8} />
       <pointLight position={[0, 0, -10]} intensity={0.8} />
       <Model />
-      <OrbitControls enableZoom={false} />
+      <OrbitControls />
     </>
   );
 }
